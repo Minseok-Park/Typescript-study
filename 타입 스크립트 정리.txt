@@ -1,0 +1,16 @@
+-- 전역적으로 설치하는 방법 --
+타입스크립트 전역적으로 설치 : npm i typescript -g
+tsc 명령어 => 타입스크립트를 자바스크립트 형태로 변경시켜줌
+tsc --init => 타입 스크립트 설정 파일 생성  (tsconfig.json)
+설정 파일 생성 후 tsc 입력하면 타입스크립트 => 자바스크립트 파일로 생성
+tsc -w => 계속 tsc를 할 필요없이 파일이 변경될 때 마다 자동으로
+컴파일 해줌
+
+-- 해당 프로젝트에 설치하는 방법--
+npm init -y => package.json 설정 파일 생성
+npm i typescript => 타입스크립트 설치
+npx tsc --init => 타입스크립트 설정 파일 생성(tsconfig.json)
+npx tsc => 타입스크립트->자바스크립트 변경
+npx tsc -w => watch모드로 실행!
+
+npm i typescript -D => devDependencies 안에 설치(개발용 명시)
