@@ -31,6 +31,38 @@ npm i typescript -D => devDependencies 안에 설치(개발용 명시)
 매개변수 타입이 같거나 슈퍼타입인 경우가 아닌 경우, 에러를 통해
 경고한다.
 
+===============tsconfig ==================
+최상위 프로퍼티
+* compileOnSave
+* extends
+* compileOptions
+* files
+* include
+* exclude
+* references
+
+어떤 파일을 compile할지 결정 => files, include, exclude
+어떤 설정으로 compile할지 => compileOptions
+
+초기 설정 파일에는 compileOnSave가 없음
+"compileOnSave" : true 를 추가해주면 저장할 때 마다 컴파일 해준다
+
+"extends" : "파일 (상대) 경로명"  => string으로
+"extends" : "./base.json" => base.json 에서 tsconfig.json 기능을 확장하여
+작성 가능!
+
+** files, include, exclude => 셋 다 설정이 없으면 ,전부 다 컴파일
+- files : 상대 혹은 절대 경로의 리스트 배열, exclude 보다 쌔다
+- include : glob 패턴  ex) .gitignore
+=> exclude 보다 약하다, * 같은걸 사용하면 .ts/.tsx/.d.ts만 include
+
+- exclude : glob 패턴 ex).gitignore
+=> 설정 안하면 4가지(node_modules, bower_components, 
+jspm_packages, <outDir>)를 default로 제외한다.
+<outDir>은 항상 제외된다. (include에 있어도)
+
+
+
 
 
 
