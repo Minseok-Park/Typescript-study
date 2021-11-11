@@ -10,4 +10,4 @@ const p81: Person8 = {
   gender: "male",
 };
 
-p81.gender = "female";
+// p81.gender = "female";
