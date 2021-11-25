@@ -1,12 +1,15 @@
-import React, { useCallback } from "react";
-
-import Greetings from "./Greetings";
+import React from "react";
+import MyForm from "./MyForm";
 
 function App() {
-  const click = useCallback((name: string) => {
-    console.log(name);
-  }, []);
-  return <Greetings name="리액트" click={click} />;
+  type FormParams = {
+    name: string;
+    description: string;
+  };
+  const onSubmit = (form: FormParams) => {
+    console.log(form);
+  };
+  return <MyForm onSubmit={onSubmit} />;
 }
 
 export default App;
