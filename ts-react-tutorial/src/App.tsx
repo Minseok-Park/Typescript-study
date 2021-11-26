@@ -1,15 +1,13 @@
 import React from "react";
-import MyForm from "./MyForm";
+import ReducerSample from "./ReducerSample";
+import SampleProvider from "./SampleContext";
 
 function App() {
-  type FormParams = {
-    name: string;
-    description: string;
-  };
-  const onSubmit = (form: FormParams) => {
-    console.log(form);
-  };
-  return <MyForm onSubmit={onSubmit} />;
+  return (
+    <SampleProvider>
+      <ReducerSample />
+    </SampleProvider>
+  );
 }
 
 export default App;

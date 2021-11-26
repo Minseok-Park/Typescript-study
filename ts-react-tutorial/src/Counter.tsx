@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+
+type Action = { type: "INCREASE" } | { type: "DECREASE" };
+
+function reducer(state: number, action: Action): number {
+  switch (action.type) {
+    case "INCREASE":
+      return state + 1;
+    case "DECREASE":
+      return state < 1 ? 0 : state - 1;
+    default:
+      throw new Error(`Unhandled action type ${action}`);
+  }
+}
 
 const Counter = () => {
-  const [count, setCount] = useState<number>(0);
-  const onIncrease = () => setCount(count + 1);
-  const onDecrease = () => {
-    if (count === 0) return;
-    setCount(count - 1);
-  };
-
+  const [count, dispatch] = useReducer(reducer, 0);
+  const onIncrease = () => dispatch({ type: "INCREASE" });
+  const onDecrease = () => dispatch({ type: "DECREASE" });
   return (
     <div>
       <h1>{count}</h1>
